@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/">Go Back to the Index</a>
+    <h1>Add a New Show</h1>
+
+    {% if messages %}
+<ul class="messages">    
+    {% for message in messages %}    
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+    {% endfor %}
+</ul>
+{% endif %}
+    
+    <form action="/shows/new/add" method="POST" name="new_show_id">
+        <h3>title</h3>
+        <input type="text" name="title">
+        <h3>Network</h3>
+        <input type="text" name="network">
+        <h3>Release Date</h3>
+        <input type="date" name="release">
+        <h3>Description</h3>
+        <input type="text" name="desc">
+        <div>
+            {% csrf_token %}
+            <button type="submit" value="new_show">Submit</button>
+        </div>
+    </form>
+
+    
+</body>
+</html>

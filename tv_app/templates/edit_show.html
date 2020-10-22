@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="/">Go Back</a>
+    <h1>Edit Show {{show.id}}</h1>
+
+    <form action="/show/new/{{show.id}}/edit/done" method="post">
+        {% csrf_token %}
+        <h2>Title</h2>
+            <input value="{{show.title}}" type="text" name="title_edit">
+        <h2>Network</h2>
+            <input value="{{show.network}}" type="text" name="network">
+        <h2>Release Date</h2>
+            <input value="{{show.release}}" type="date" name="release">
+        <h2>Description</h2>
+            <input value="{{show.desc}}" type="text" name="desc">
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>
